@@ -31,7 +31,7 @@ Feature: Home page tests
     And Click a button "Enter"
     Then Verify text "team 5 test lala" is displayed
 
-  @US1005b
+  @US1005b @test
   Scenario: Testing ability to add questions in Coding dashboard
     And Navigate to "Soft skills" dashboard
     And Click a button "Enter new question "
