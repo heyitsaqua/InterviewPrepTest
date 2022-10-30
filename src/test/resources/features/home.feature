@@ -22,3 +22,19 @@ Feature: Home page tests
   Scenario: Testing dont section does not add statement with symbols
     And Add a dont statement "team 5 dont statement!!!@#$%^"
     Then Verify "team 5 dont statement!!!@#$%^" statement is not displayed
+
+  @US1005a
+  Scenario: Testing ability to add questions in Coding dashboard
+    And Navigate to "Coding" dashboard
+    And Click a button "Enter new question "
+    And Add question "team 5 test lala"
+    And Click a button "Enter"
+    Then Verify text "team 5 test lala" is displayed
+
+  @US1005b
+  Scenario: Testing ability to add questions in Coding dashboard
+    And Navigate to "Soft skills" dashboard
+    And Click a button "Enter new question "
+    And Add question "team 5 test lala"
+    And Click a button "Enter"
+    Then Verify text "team 5 test lala" is displayed

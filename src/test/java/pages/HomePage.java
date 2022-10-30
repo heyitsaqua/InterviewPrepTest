@@ -11,9 +11,15 @@ public class HomePage {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
-    @FindBy(id = "sample")
-    public WebElement sampleElement;
+    @FindBy(id = "inputArea1")
+    public WebElement doInput;
 
+    @FindBy(id = "inputArea2")
+    public WebElement dontInput;
 
+    @FindBy(linkText = "Add don't ")
+    public WebElement addDontBtn;
 
+    @FindBy(id = "question")
+    public WebElement addQuestionBtn;
 }
