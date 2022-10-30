@@ -11,12 +11,4 @@ public class LoginPage {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
-    @FindBy(id = "inputArea1")
-    public WebElement doInput;
-
-    @FindBy(id = "inputArea2")
-    public WebElement dontInput;
-
-    @FindBy(linkText = "Add don't ")
-    public WebElement addDontBtn;
 }
