@@ -1,17 +1,15 @@
 Feature: Home page tests
-  Background:
+
+  @US2000
+  Scenario:  Test header of the home page
     Given I open website url
-    And I login using "test@yahoo.com" and "test123"
+    Then Verify header text is Interview App
 
-  @US1004a
-  Scenario: Testing do statement add functionality
-    And Add a do statement "team 5 do statement test"
-    Then Verify "team 5 do statement test" statement is displayed
-
-  @US1004b
-  Scenario: Testing dont statement add functionality
-    And Add a dont statement "team 5 dont statement test"
-    Then Verify "team 5 dont statement test" statement is displayed
+  @US2001
+  Scenario: Verify buttons is displayed
+    Given I open website url
+    Then Verify button "Sign Out" is displayed
+    Then Verify button "Manage Access" is disabled
 
   @US1004c
   Scenario: Testing do section does not add statement with symbols
@@ -31,10 +29,17 @@ Feature: Home page tests
     And Click a button "Enter"
     Then Verify text "team 5 test lala" is displayed
 
-  @US1005b @test
+  @US1005b
   Scenario: Testing ability to add questions in Coding dashboard
     And Navigate to "Soft skills" dashboard
     And Click a button "Enter new question "
     And Add question "team 5 test lala"
     And Click a button "Enter"
     Then Verify text "team 5 test lala" is displayed
+
+  @US2002
+  Scenario:Verify Dashboard is present
+    Given I open website url
+    Then Verify All Topics is displayed
+    Then Verify Coding is displayed
+    Then Verify Soft skills is displayed
