@@ -16,12 +16,6 @@ public class HomeSteps implements CommonPage {
     }
 
 
-    @Then("Verify header text is Interview App")
-    public void verifyHeaderTestIs() {
-
-        //BrowserUtils.assertEquals(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, "Interview App"))));
-    }
-
     @And("Add a do statement {string}")
     public void addADoStatement(String message) {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(
@@ -77,6 +71,33 @@ public class HomeSteps implements CommonPage {
     @Then("Verify text {string} is displayed")
     public void verifyTextIsDisplayed(String text) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(
-                String.format(XPATH_TEMPLATE_TEXT, text+"   "))));
+                String.format(XPATH_TEMPLATE_TEXT, text + "   "))));
     }
-}
+    @Then("Verify header text is {string}")
+    public void verifyHeaderTextIs(String headerText) {
+        WebElement element = BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, headerText)));
+        BrowserUtils.assertEquals(element.getText(), headerText);
+    }
+    @Then("Verify button {string} is displayed")
+    public void verifyButtonIsDisplayed(String button) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().
+                findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, button))));
+    }
+
+    @Then("Verify button {string} is not displayed")
+    public void verifyButtonIsNotDisplayed(String button2) {
+        BrowserUtils.assertFalse(BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_TEXT, button2))).isDisplayed());
+    }
+
+    @Then("Verify {string} is displayed")
+    public void verifyIsDisplayed(String dashboard) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, dashboard))));
+    }
+
+        }
+
+
+
+
