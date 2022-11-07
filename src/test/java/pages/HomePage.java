@@ -22,4 +22,7 @@ public class HomePage {
 
     @FindBy(id = "question")
     public WebElement addQuestionBtn;
+
+    @FindBy(xpath = "//p/parent::a/following-sibling::span/child::button")
+    public WebElement questionDeleteBtn;
 }

@@ -2,6 +2,7 @@ package step_definitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
@@ -92,11 +93,20 @@ public class HomeSteps implements CommonPage {
     }
 
     @Then("Verify {string} is displayed")
-    public void verifyIsDisplayed(String dashboard) {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, dashboard))));
+    public void verifyIsDisplayed(String text) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))));
     }
 
-        }
+    @Then("Verify text {string} is not displayed")
+    public void verifyTextIsNotDisplayed(String text) {
+        Assert.assertFalse(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, text))).isDisplayed());
+    }
+
+    @And("Click question delete button")
+    public void clickQuestionDeleteButton() {
+        BrowserUtils.click(page.questionDeleteBtn);
+    }
+}
 
 
 
